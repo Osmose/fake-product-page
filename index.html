@@ -9,7 +9,9 @@
     <img src="https://www.mozilla.org/media/protocol/img/logos/mozilla/white.612a25fa976b.svg">
     <div id="price">$5.00</div>
     <script>
-      const dollars = Math.floor(Math.random() * 100);
+      const url = new URL(window.location.href);
+      const max = url.searchParams.get('max') || 100;
+      const dollars = url.searchParams.get('dollars') || Math.floor(Math.random() * max);
       document.getElementById('price').textContent = `$${dollars}.00`;
     </script>
   </body>

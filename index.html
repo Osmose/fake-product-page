@@ -7,13 +7,23 @@
   </head>
   <body>
     <h1 id="title">Fake Product</h1>
-    <img src="https://www.mozilla.org/media/protocol/img/logos/mozilla/white.612a25fa976b.svg">
+    <img id="picture" src="https://www.mozilla.org/media/protocol/img/logos/mozilla/white.612a25fa976b.svg">
     <div id="price">$5.00</div>
     <script>
       const url = new URL(window.location.href);
       const max = url.searchParams.get('max') || 100;
       const dollars = url.searchParams.get('dollars') || Math.floor(Math.random() * max);
       document.getElementById('price').textContent = `$${dollars}.00`;
+
+      const randoTitle = `Fake Product ${Math.floor(Math.random() * 5)}`;
+      document.getElementById('title').innerText = randoTitle;
+
+      const images = [
+        'https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png',
+        'https://www.mozilla.org/media/protocol/img/logos/mozilla/white.612a25fa976b.svg',
+      ];
+      const imageUrl = images[Math.floor(Math.random() * images.length)];
+      document.getElementById('picture').src = imageUrl;
     </script>
   </body>
 </html>
